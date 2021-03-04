@@ -1,14 +1,22 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is homework 11-note taker.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Bao Xiong",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baoxng/Note-Taker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baoxng/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/baoxng/Note-Taker#readme"
 }
