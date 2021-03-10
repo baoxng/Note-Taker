@@ -11,7 +11,6 @@ const PORT= pross.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Data
 
 //Routes
 
@@ -35,6 +34,44 @@ app.post('/api/notes', (req, res)=> {
     })
 
 });
+
+//App methods
+app.get('/api/notes', (req, res) => {
+    fs.readFile(__dirname = '/db/db.json', 'utf8', (err, notes) => {
+        if(err) throw err;
+        console.log('This is in notes.', data)
+        res.json(JSON.parse(data))
+    })
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+    const noteId= JSON.parse(req.params.id)
+    console.log(noteId)
+    fs.readFile(__dirname + '/db/db.josn', 'utf8', (err, notes) => {
+        if (err) throw err;
+        notes= JSON.parse(notes)
+        notes= notes.filter(valid => valid.id !== noteId)
+    fs.writeFile(__dirname + '/db/db.json', JSON.stringify(notes), (err, data) => {
+        if(err) throw err;
+        res.json(notes);
+        })
+    })
+});
+
+app.put('/api/notes/:id', (req, res)=> {
+    const noteId= JSON.parse(req.params.id)
+    console.log(noteID)
+    fs.readFile(__dirname + 'db/db.json', 'utf8', (err, notes) =>{
+        if(err) throw err;
+        notes.JSON.parse(notes)
+        notes= notes.filter(valid => valid.id !== noteId)
+    fs.writeFile(__dirname + 'db/db.json', JSON.stringify(notes), (err, data)=> {
+        if(err) throw err;
+        res.json(notes)
+        })
+    })
+});
+
 
 //Listener
 app.listen(PORT, function () {
